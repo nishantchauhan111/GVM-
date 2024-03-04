@@ -1,0 +1,31 @@
+<div id="<%= dom_id order %>">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Products</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= order.customer_name %></td>
+        <td>
+          <% if order.order_items.any? %>
+            <table class="table">
+              <tbody>
+                <% order.order_items.each do |order_item| %>
+                  <tr>
+                    <td>Product Name: <%= order_item.product.name %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            No Products found.
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

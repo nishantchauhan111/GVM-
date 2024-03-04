@@ -1,0 +1,32 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2>Order Items</h2>
+ <div>
+  <label for="product_ids">Products</label>
+  <select id="product_ids" name="order[product_ids][]" multiple class="form-control select2-field">
+    <% @products.each do |product| %>
+      <option value="<%= product.id %>"><%= product.name.titleize %></option>
+    <% end %>
+  </select>
+</div>
+
+  <div>
+    <%= form.label :customer_name, style: "display: block" %>
+    <%= form.text_field :customer_name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

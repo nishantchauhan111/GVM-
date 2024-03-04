@@ -1,0 +1,32 @@
+<div id="<%= dom_id product %>">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">Name</th>
+        <td><%= product.name %></td>
+      </tr>
+      <tr>
+        <th scope="row">Price</th>
+        <td><%= product.price %></td> 
+      </tr>
+      <tr>
+        <th scope="row">Quantity</th>
+        <td><%= product.quantity %></td> 
+      </tr>
+      <tr>
+        <th scope="row">Description</th>
+        <td><%= product.description %></td>
+      </tr>
+      <tr>
+        <th scope="row">Categories</th>
+        <td>
+          <% if product.category.present? %>
+            <%= product.category.name %>
+          <% else %>
+            No category assigned
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
